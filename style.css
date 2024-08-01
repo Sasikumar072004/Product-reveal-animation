@@ -1,0 +1,263 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* CSS VARIABLES */
+:root{
+    --purple-color: rgb(176, 54, 247);
+    --white-color: #fff;
+    --common-pink: #f71568;
+    --yellow: #ffd030;
+    --font-family-poppins: poppins;
+    --font-family-lato: Lato;
+    --common-transition: cubic-bezier(0.85, 0.65, 0.35, 0.95) forwards;
+}
+
+/* BODY CSS */
+body{
+    font-family: var(--font-family-poppins);
+    background-color: var(--purple-color);
+    overflow: hidden;
+}
+
+
+/* CONTAINER CSS */
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container .box{
+    width: 0px;
+    height: 580px;
+    background-color: var(--white-color);
+    position: absolute;
+    animation: openbox 1s var(--common-transition);
+}
+
+@keyframes openbox {
+    0%{
+        width: 0px;
+        left: 20%;
+    }
+    100%{
+        width: 900px;
+        left: 20%;
+    }
+}
+
+
+.container .box .product-image img{ 
+    width: 500px;
+    position: absolute;
+    left: -100px;
+    top: 50px;
+    opacity: 0;
+    animation: fadein 1s 1s ease-in-out forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+ .product-video{
+    width: 320px;
+    position: absolute;
+    bottom: 110px;
+    left: 50px;
+}
+
+.video{
+    display: flex;
+    position: absolute;
+    gap: 20px;
+    align-items: center;
+    animation: upvideo 1s 1.5s var(--common-transition);
+    bottom: 0;
+    opacity: 0;
+}
+
+@keyframes upvideo {
+    0%{
+        opacity: 0;
+        bottom: -50px;
+    }
+    100%{
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+.video .fa-solid{
+    font-size: 20px;
+    color: var(--common-pink);
+    cursor: pointer;
+    box-shadow: #f71568;
+    border-radius: 100%;
+    border: 3px solid var(--common-pink);
+    padding: 12px 15px;
+    transition: ease-in-out 220ms;
+}
+.video .fa-solid:hover{
+    color: var(--white-color);
+    background-color: var(--common-pink);
+    box-shadow: 0 0 20px var(--common-pink);
+}
+
+.video p{
+    text-transform: uppercase;
+    color: var(--common-pink);
+}
+
+.product-content{
+    background-color: var(--yellow);
+    animation: box2 1s var(--common-transition);
+    width: 0px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    left: 450px;
+    top: 70px;
+    position: absolute;
+}
+
+@keyframes box2 {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        width: 520px;
+    }
+}
+
+.product-about{
+    position: absolute;
+    opacity: 1;
+    animation: font 1s var(--common-transition);
+    text-align: justify;
+    width: 420px;
+    top: 30px;
+    left: 50px;
+}
+
+@keyframes font {
+    0%{
+        opacity: 0;
+        top: 500px;
+    }
+    100%{
+        opacity: 1;
+        top: 30px;
+    }
+}
+
+.product-about p{
+    position: absolute;
+    top: 130px;
+}
+
+.product-about span{
+    font-weight: bold;
+    text-transform: uppercase;    
+    position: absolute;
+    top: 60px;
+}
+
+.product-buttons{
+    display: flex;
+    position: absolute;
+    top: 420px;
+    left: -1px;
+    opacity: 0;
+    animation: 0.8s 2s btn var(--common-transition);
+}
+
+@keyframes btn{
+    0%{
+        opacity: 0;
+        top: 500px;
+    }
+    30%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        top: 420px;
+    }
+}
+
+.product-buttons button{  
+    width: 250px;
+    height: 60px;
+    border: 3px solid var(--common-pink);
+    background-color: var(--white-color);
+    color: var(--common-pink);
+    font-family: var(--font-family-poppins);
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.product-buttons button:hover{
+    box-shadow: 0 0 20px var(--common-pink);
+    transition: ease-in-out 220ms;
+}
+
+.product-buttons .specs-btn{
+    margin-left: 20px;
+    background-color: var(--common-pink );
+    color: var(--white-color);
+}
+
+.product-view-more{
+    position: absolute;
+    top: 330px;
+    left: 65px;
+    text-transform: uppercase;
+    font-family: var(--font-family-lato);
+    letter-spacing: 2px;
+    font-size: 12px;
+    animation: view 0.9s var(--common-transition);
+    cursor: pointer;
+}   
+
+@keyframes view {
+    0%{
+        opacity: 0;
+        top: 450px;
+    }    
+    100%{
+        opacity: 1;
+        top: 330px;
+    }
+}
+.view-more-block{
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    top: -1px;
+    left: -15.5px;
+    z-index: -1;
+    background-color: var(--white-color);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+}
+
+
+.product-view-more:hover .view-more-block{
+    width: 220px;
+    height: 20px;
+    top: -1px;
+    box-shadow: 10px 13px 44px -3px rgba(0,0,0,0.46);
+}
